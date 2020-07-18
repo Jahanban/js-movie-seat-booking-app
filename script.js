@@ -9,6 +9,16 @@ let ticketPrice = parseInt(movieSelect.value);
 //update total and count for tickets
 function updateSelectedCount() {
     const selectedSeats = document.querySelectorAll('.row .seat.selected');
+
+    // in order to save selection to local storage we will copy selected seatsb in an array and map through that array and return a new array indexes
+
+    const seatsIndex = [...selectedSeats].map((seat) => {
+        return [...seats].indexOf(seat)
+    });
+
+    // now saving in local storage
+
+
     // this will put our selected seats in a nodelist which is like an array
 
     const selectedSeatsCount = selectedSeats.length;
