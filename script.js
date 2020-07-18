@@ -4,6 +4,14 @@ const count = document.getElementById('count');
 const total = document.getElementById('total');
 const movieSelect = document.getElementById('movie');
 
-const ticketPrice = movieSelect.value;
-console.log(ticketPrice);
+const ticketPrice = parseInt(movieSelect.value);
+
+// Clicking on a seat to change it selected
+
+container.addEventListener('click', (e) => {
+    if (e.target.classList.contains('seat') && !e.target.classList.contains('occupied')) {
+        e.target.classList.toggle('selected');
+    }
+
+})
 
