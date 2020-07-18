@@ -6,18 +6,26 @@ const movieSelect = document.getElementById('movie');
 
 let ticketPrice = parseInt(movieSelect.value);
 
+//save selected movie index and price
+
+function setMovieData(movieIndex, moviePrice) {
+    localStorage.setItem('selectedMovieIndex', movieIndex);
+    localStorage.setItem('selectedMoviePrice', moviePrice);
+}
+
+
 //update total and count for tickets
 function updateSelectedCount() {
     const selectedSeats = document.querySelectorAll('.row .seat.selected');
 
-    // in order to save selection to local storage we will copy selected seatsb in an array and map through that array and return a new array indexes
+    // in order to save selection to local storage we will copy selected seats in an array and map through that array and return a new array indexes
 
     const seatsIndex = [...selectedSeats].map((seat) => {
         return [...seats].indexOf(seat)
     });
 
     // now saving in local storage
-
+    localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex));
 
     // this will put our selected seats in a nodelist which is like an array
 
@@ -34,6 +42,9 @@ function updateSelectedCount() {
 
 movieSelect.addEventListener('change', e => {
     ticketPrice = parseInt(e.target.value);
+    //saving selected movie index in local storage and the price
+    setMovieData(e.target.selectedIndex, e.target.value);
+
     updateSelectedCount();
 })
 
