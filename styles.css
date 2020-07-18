@@ -64,13 +64,13 @@ body {
 }
 
 .seat:not(.occupied):hover{
-    cursor: default;
-    transform: scale(1);
+    cursor: pointer;
+    transform: scale(1.2);
 }
 
 .showcase .seat:not(.occupied):hover{
-    cursor: pointer;
-    transform: scale(1.2);
+    cursor: default;
+    transform: scale(1);
 }
 
 .showcase {
@@ -86,11 +86,14 @@ body {
 .showcase li {
     display: flex;
     align-items: center;
-    justify-items: center;
-    margin: 10px 30px;
+    justify-items: center; 
+    margin: 0 30px;
 }
 
 .showcase li small{
+    display: flex;
+     align-items: center;
+    justify-items: center;
     margin-left: 20px;
 }
 
